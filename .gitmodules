@@ -1,0 +1,3 @@
+[submodule "blood4"]
+	path = blood4
+	url = git@github.com:ue007/blood4.git
