@@ -11,9 +11,10 @@ export const parameters = {
 };
 
 // Place custom global values here
-// export const globals = {
-//   key: "My value",
-// };
+export const globals = {
+    key: 'My value',
+    forceCanvas: false
+};
 
 let loaded = 0;
 export const loaders = [
