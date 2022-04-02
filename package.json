@@ -1,6 +1,23 @@
 {
-    "name": "root",
+    "name": "blood4storybook",
+    "version": "1.0.0",
+    "description": "blood4storybook",
+    "author": "ue007",
+    "homepage": "https://github.com/blood5/blood4storybook",
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blood5/blood4storybook"
+    },
+    "license": "ISC",
+    "keywords": [
+        "pixi",
+        "storybook",
+        "graphics",
+        "experiment",
+        "prototype"
+    ],
+    "main": "index.js",
     "workspaces": [
         "packages/*"
     ],
@@ -9,15 +26,16 @@
         "yarn": ">=1.5.1"
     },
     "scripts": {
+        "dev": "start-storybook -p 5555",
+        "build-storybook": "build-storybook",
+        "deploy-storybook": "storybook-to-ghpages",
+        "now-build": "build-storybook -c .storybook -o docs",
         "bootstrap": "lerna bootstrap --use-workspaces",
         "build": "lerna exec --parallel -- babel --root-mode upward src -d lib --ignore **/*.stories.js,**/*.spec.js",
         "coverage": "jest --coverage",
-        "deploy-storybook": "storybook-to-ghpages",
-        "dev": "start-storybook -p 5555",
         "lint:js": "eslint . --ext .js --ignore-pattern lib --ignore-pattern node_modules",
         "lint:styles": "stylelint './packages/**/*.js'",
         "lint": "yarn lint:js && yarn lint:styles",
-        "now-build": "build-storybook -c .storybook -o docs",
         "prettier": "prettier --write \"**/*.{js,json,md,yml}\"",
         "lerna-publish": "lerna publish",
         "test": "yarn build && yarn lint && yarn coverage",
@@ -34,20 +52,27 @@
             "git add"
         ]
     },
+    "dependencies": {
+        "@pixi/graphics-extras": "^6.2.2",
+        "pixi.js": "^6.2.2",
+        "pixi-graphpaper": "^2.0.0",
+        "pixi-viewport": "^4.34.4"
+    },
     "devDependencies": {
         "@babel/cli": "7.11.6",
-        "@babel/core": "7.11.6",
+        "@babel/core": "^7.17.5",
         "@babel/preset-env": "7.11.5",
         "@babel/preset-react": "7.10.4",
-        "@storybook/addon-docs": "6.4.20",
-        "@storybook/preset-create-react-app": "4.1.0",
-        "@storybook/react": "6.4.20",
-        "@storybook/storybook-deployer": "2.8.11",
+        "@storybook/addon-actions": "^6.4.19",
+        "@storybook/addon-docs": "^6.4.19",
+        "@storybook/addon-essentials": "^6.4.19",
+        "@storybook/addon-links": "^6.4.19",
+        "@storybook/html": "^6.4.19",
+        "@storybook/storybook-deployer": "^2.8.10",
+        "@types/offscreencanvas": "^2019.6.4",
         "babel-core": "7.0.0-bridge.0",
         "babel-jest": "26.3.0",
-        "babel-loader": "8.1.0",
         "babel-plugin-styled-components": "1.11.1",
-        "eslint": "7.8.1",
         "eslint-config-get-off-my-lawn": "5.0.1",
         "husky": "4.3.0",
         "jest": "26.4.2",
@@ -56,7 +81,6 @@
         "jest-styled-components": "7.0.3",
         "lerna": "3.22.1",
         "lint-staged": "10.3.0",
-        "prettier": "2.1.1",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-test-renderer": "16.13.1",
@@ -65,6 +89,11 @@
         "stylelint-config-get-off-my-lawn": "2.0.0",
         "stylelint-config-styled-components": "0.1.1",
         "stylelint-processor-styled-components": "1.10.0",
-        "webpack": "4.44.1"
+        "webpack": "4.44.1",
+        "babel-loader": "^8.2.3",
+        "eslint": "^8.10.0",
+        "prettier": "^2.5.1",
+        "tslib": "^2.3.1",
+        "typescript": "^4.6.2"
     }
 }
